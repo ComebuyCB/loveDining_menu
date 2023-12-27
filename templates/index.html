@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut Icon" type="image/x-icon" href="">
+    <link rel="icon" type="image/png" sizes="16x16" href="">
+    <link rel="icon" type="image/png" sizes="32x32" href="">
+    <link rel="icon" type="image/png" sizes="96x96" href="">
+
+    <title></title>
+
+    <!-- core -->
+    <script src="../static/core/jquery-3.5.1/jquery-3.5.1.min.js"></script>
+    <link href="../static/core/bootstrap-5.2.3/css/bootstrap.min.css" rel="stylesheet">
+    <script src="../static/core/bootstrap-5.2.3/js/bootstrap.bundle.min.js"></script>
+
+    <!-- plugins -->
+    <script src="../static/plugins/vue-3.2.45/vue.global.min.js"></script>
+    <link href="../static/plugins/fontawesome-free-5.15.1-web/css/all.min.css" rel="stylesheet">
+
+    <!-- main -->
+    <link href="../static/common/css/main.css" rel="stylesheet">
+    <script src="../static/common/js/main.js"></script>
+
+    <style>
+        .container-bg { padding: 16px; overflow: hidden; }
+        @page { 
+            margin: 0;
+            size: A4 portrait;
+        }
+        @media print {
+            html, body { width: 210mm; }
+        }
+    </style>
+</head>
+<body id="body" class="bg-light">
+    <div class="paper A4 mx-auto">
+        <div v-for="i of [0,1]" class="p-4 container-bg position-relative" style="height: calc(296mm / 2); border-bottom: 1px dashed rgba(200,200,200,0.25);">
+            <div>
+                <img src="../static/common/img/img1.png" class="position-absolute" width="270" height="240" style="opacity: 0.1; left: 24%; top: 35.5%;">
+                <img src="../static/common/img/img2.png" class="position-absolute" width="300" style="opacity: 0.1; left: 62%; top: 28.5%; transform: rotate(-40deg);">
+                <img src="../static/common/img/img3.png" class="position-absolute" width="150" style="opacity: 0.4; left: 48%; top: 75%;">
+                <img src="../static/common/img/img4.png" class="position-absolute" width="300" style="opacity: 0.4; left: 27%; top: 0%;">
+            </div>
+
+            <header class="d-flex align-items-end justify-content-between mb-4">
+                <div class="fs_h1 fw-bold position-relative">
+                    愛<span class="text-danger">の</span>食堂
+                    <!-- <i class="position-absolute fa fa-heart text-danger" style="left: 7%; top: 38%; font-size: 14px;"></i>
+                    <i class="position-absolute fa fa-heart text-danger" style="left: 83%; top: 38%; font-size: 14px;"></i> -->
+                </div>
+                <div class="fs_h4 d-flex align-items-center fw-400">
+                    <div class="me-2" style="width: 24px; height: 24px; border: 1px solid #333; background-color: rgba(255,255,255,0.25);"></div> 外帶
+                    <span class="mx-2">/</span> 
+                    內用 <span class="mx-2" style="text-decoration: underline;">____</span> 桌 
+                </div>
+            </header>
+
+            <div class="row gx-3">
+                <div class="col-7" style="width: 65%;">
+                    <div class="table-responsive" style="border-radius: 2rem 2rem 0 0;">
+                        <table class="table table-bordered bg-light table-striped fs_h5 cTable">
+                            <thead>
+                                <tr style="background-color: pink;">
+                                    <th class="py-1 text-center" colspan="5">
+                                        <div class="fs_h4 fw-semibold" style="color: #930;">鍋 燒 麵</div>
+                                    </th>
+                                </tr>
+                                <tr class="bg-warning text-center">
+                                    <th class="fw-500" style="width: 25%;"></th>
+                                    <th class="fw-500" style="width: 25%;">拉麵</th>
+                                    <th class="fw-500" style="width: 25%;">烏龍麵</th>
+                                    <th class="fw-500" style="width: 25%;">鍋燒意麵</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-center">
+                                <tr v-for="(val,idx) of data['鍋燒麵']">
+                                    <td>{{val.item}}鍋燒麵</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-5" style="width: 35%;">
+                    <div class="table-responsive" style="border-radius: 2rem 2rem 0 0;">
+                        <table class="table table-bordered bg-light table-striped mb-2 fs_h5 cTable">
+                            <thead>
+                                <tr style="background-color: pink;">
+                                    <th class="py-1 text-center" colspan="5">
+                                        <div class="fs_h4 fw-semibold" style="color: #930;">飯 類</div>
+                                    </th>
+                                </tr>
+                                <tr class="bg-warning text-center">
+                                    <th class="fw-500" style="width: 50%;"></th>
+                                    <th class="fw-500" style="width: 50%;">飯 (附濃湯)</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-center">
+                                <tr v-for="(val,idx) of data['飯類']">
+                                    <td>{{val.item}}</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- <div class="bg-light fw-400 px-3 py-4" style="border: 1px solid #ccc;">
+                        備註
+                    </div> -->
+                </div>
+            </div>
+
+            <footer class="d-flex align-items-end justify-content-between mt-3">
+                <div class="fs_h3">
+                    所有品項，均一價
+                    <span class="mx-1" style="font-size: 1.25em; color: red;">$100</span>
+                    元
+                </div>
+                <div class="fs_h4">
+                    合計： <span style="text-decoration: underline;">____________</span>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script>
+        const App = {
+            setup(){
+                const data = ({
+                    '鍋燒麵': [
+                        {item: '日式', },
+                        {item: '味噌', },
+                        {item: '麻辣', },
+                        {item: '沙茶', },
+                        {item: '咖哩', }
+                    ],
+                    '飯類': [
+                        {item: '日式蛋包飯', }, 
+                        {item: '台式牛腩飯', }, 
+                        {item: '咖哩雞柳飯', },
+                        {item: '　', },
+                        {item: '　', },
+                    ],
+                })
+                return {
+                    data,
+                }
+            }
+        }
+        Vue.createApp(App).mount('#body')
+    </script>
+</body>
+</html>
