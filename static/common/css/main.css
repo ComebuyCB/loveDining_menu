@@ -28,6 +28,8 @@ Structure instruction：
         :root {
             --100vh: 100vh;
             --ff-default: 'Noto Sans TC';
+
+            --bs-warning-rgb: 255,200,8;
         }
 
 
@@ -70,8 +72,9 @@ Structure instruction：
 
     /*====== [Elements] ======*/
         /*===  ===*/
-            .paper.A4 { width: 210mm; /*height: 297mm;*/ }
-            .paper.A4v { width: 297mm; /*height: 210mm;*/ }
+            .paper.A4 { width: 210mm; height: 296.5mm; }
+            .paper.A4v { width: 297mm; height: 210mm; }
+
 
     /*====== [Components] ======*/
         /*===  ===*/
@@ -79,6 +82,7 @@ Structure instruction：
             .fs_h3 { font-size: 28px !important; font-weight: 500; }
             .fs_h4 { font-size: 24px !important; font-weight: 400; }
             .fs_h5 { font-size: 20px !important; font-weight: 400; }
+            .fs_h6 { font-size: 16px !important; font-weight: 400; }
 
 
 
