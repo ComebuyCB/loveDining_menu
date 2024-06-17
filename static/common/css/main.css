@@ -30,6 +30,7 @@ Structure instruction：
             --ff-default: 'Noto Sans TC';
 
             --bs-warning-rgb: 255,200,8;
+            
         }
 
 
@@ -50,6 +51,7 @@ Structure instruction：
 /*######### [Plugins] #########*/
     /*====== [Plugins Modified] ======*/
         /*=== Bootstrap ===*/
+            .table { --bs-table-striped-bg: rgba(0, 0, 0, 0.04); }
 
 
     /*====== [Plugins SelfMade] ======*/
@@ -76,14 +78,19 @@ Structure instruction：
             .paper.A4v { width: 297mm; height: 210mm; }
 
 
+            .paper-clip-line > *:not(:last-child)::after { content: ''; position: absolute; right: -1px; top: 0; bottom: 0; height: 100%; width: 2px; background: linear-gradient(#ddd 0%, #ddd 50%, transparent 50%, transparent 100%); background-size: 10px 48px; }
+
+
     /*====== [Components] ======*/
         /*===  ===*/
-            .fs_h1 { font-size: 46px !important; font-weight: 500; font-family: '標楷體'; line-height: 1.3; }
+            .fs_h1 { font-size: 44px !important; font-weight: 500; font-family: '標楷體'; line-height: 1.3; }
             .fs_h3 { font-size: 28px !important; font-weight: 500; }
             .fs_h4 { font-size: 24px !important; font-weight: 400; }
             .fs_h5 { font-size: 20px !important; font-weight: 400; }
             .fs_h6 { font-size: 16px !important; font-weight: 400; }
 
+        /*=== ===*/
+            .endAdd::after { content: '(　)'; display: block; color: #aaa; text-align: end; letter-spacing: 3px; }
 
 
 /*######### [Pages] #########*/
@@ -94,4 +101,4 @@ Structure instruction：
     /*====== [Current Page] ======*/
         /*=== index ===*/
             .cTable > tbody > tr, 
-            .cTable > tbody > tr > td { border-color: #ccc; }
+            .cTable > tbody > tr > td { border-color: #ddd; }
